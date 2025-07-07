@@ -1,9 +1,9 @@
-name: Deploy gh-pages branch to GitHub Pages
+name: Deploy restructure-gh-pages branch to GitHub Pages
 
 on:
   push:
     branches:
-      - "gh-pages"
+      - "restructure-gh-pages"
   # Do a dry-run (update, no deploy) for PRs.
   pull_request:
   # Allow running this workflow manually from the Actions tab.
@@ -27,7 +27,7 @@ jobs:
     # if: github.repository == 'PHPCSStandards/PHP_CodeSniffer' # // TODO: Uncomment when done testing
     runs-on: ubuntu-latest
     steps:
-      # By default use the `gh-pages` branch.
+      # By default use the `restructure-gh-pages` branch.
       # For testing changes to the workflow or the scripts, use the PR branch
       # to have access to the latest version of the workflow/scripts.
       - name: Determine branch to use
@@ -38,7 +38,7 @@ jobs:
           if [ "${{ github.event_name }}" == "pull_request" ]; then
             echo "BRANCH=$REF" >> "$GITHUB_OUTPUT"
           else
-            echo 'BRANCH=gh-pages' >> "$GITHUB_OUTPUT"
+            echo 'BRANCH=restructure-gh-pages' >> "$GITHUB_OUTPUT"
           fi
 
       - name: Checkout code
